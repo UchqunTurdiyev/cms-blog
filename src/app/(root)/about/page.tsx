@@ -1,6 +1,8 @@
+import AuthorCard from '@/components/card/author';
 import { Dot, Home } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { authors } from '../../../../constants';
 
 function AboutPage() {
 	return (
@@ -52,9 +54,9 @@ function AboutPage() {
 			</h2>
 
 			<div className='flex justify-around max-md:flex-col max-md:space-y-4 max-md:items-center'>
-				{/* {authors.map(c => (
+				{authors.map(c => (
 					<AuthorCard key={c.name} {...c} />
-				))} */}
+				))}
 			</div>
 		</div>
 	);

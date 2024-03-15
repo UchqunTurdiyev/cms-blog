@@ -12,6 +12,5 @@ export interface IBlog {
 
 export interface IAuthors {
 	image: string;
-	title: string;
-	descr: string;
+	name: string;
 }

@@ -1,15 +1,15 @@
 import { cn } from '@/lib/utils';
-import { IBlog } from '@/types';
 import { CalendarDays, Clock, Dot, Minus } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
+import { IBlog } from '../../../types';
 
 interface Props extends IBlog {
 	isVertical?: boolean;
 }
 
-function BlogCard(blog: IBlog) {
+function BlogCard(blog: Props) {
 	return (
 		<Link href={'/'} className={cn('grid gap-4 group', blog.isVertical ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')}>
 			<div className='relative bg-secondary rounded-md'>
@@ -26,7 +26,7 @@ function BlogCard(blog: IBlog) {
 				<div className='flex items-center gap-4'>
 					<div className='flex items-center gap-2'>
 						<CalendarDays className='w-5 h-5' />
-						<p>{blog.date}</p>
+						<p>{blog.data}</p>
 					</div>
 					<Minus />
 					<div className='flex items-center gap-2'>
