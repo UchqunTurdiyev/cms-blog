@@ -1,8 +1,11 @@
-import BgArrow from '@/components/shared/bg-arrow';
-import { blogs } from '../../../../constants';
-import Blog from '@/components/blog/blog';
 
-function HomePage() {
+import BgArrow from '@/components/shared/bg-arrow';
+import { getBlogs } from '../../../../service/blog.service';
+import BlogCard from '@/components/blog/blog';
+
+async function HomePage() {
+	const blogs = await getBlogs();
+
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[60vh] flex items-center justify-center'>
@@ -17,7 +20,7 @@ function HomePage() {
 
 			<div className='flex flex-col space-y-24 mt-24'>
 				{blogs.map(blog => (
-					<Blog key={blog.title} {...blog} />
+					<BlogCard key={blog.title} {...blog} />
 				))}
 			</div>
 		</div>
