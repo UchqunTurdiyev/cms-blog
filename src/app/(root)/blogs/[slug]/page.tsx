@@ -60,7 +60,7 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 			</div>
 
 			<div className='flex mt-6 gap-6 items-center max-md:flex-col'>
-				<Image src={blog.author.image} alt='author' width='155' height='155' className='rounded-md max-md:self-start' />
+				<Image src={blog.author.image.url} alt='author' width='155' height='155' className='rounded-md max-md:self-start' />
 				<div className='flex-1 flex flex-col space-y-4'>
 					<h2 className='text-3xl font-creteRound'>{blog.author.name}</h2>
 					<p className='line-clamp-2 text-muted-foreground'>{blog.author.bio}</p>

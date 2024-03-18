@@ -1,4 +1,3 @@
-import { blogs } from './../constants/index';
 import request, { gql } from 'graphql-request';
 import { IBlog } from '../types';
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
