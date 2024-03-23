@@ -23,6 +23,10 @@ export const getBlogs = async () => {
 					name
 					slug
 				}
+				category {
+					name
+					slug
+				}
 				author {
 					name
 					image {
@@ -51,6 +55,10 @@ export const getDetailedBlog = async (slug: string) => {
 				createdAt
 				title
 				tag {
+					name
+					slug
+				}
+				category {
 					name
 					slug
 				}

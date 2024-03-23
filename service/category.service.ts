@@ -3,24 +3,24 @@ import { IBlog, ICategoryAndTag } from '../types';
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
 
-export const getTags = async () => {
+export const getCategories = async () => {
 	const query = gql`
 		query Assets {
-			tags {
+			categories {
 				name
 				slug
 			}
 		}
 	`;
 
-	const { tags } = await request<{ tags: ICategoryAndTag[] }>(graphqlAPI, query);
-	return tags;
+	const { categories } = await request<{ categories: ICategoryAndTag[] }>(graphqlAPI, query);
+	return categories;
 };
 
-export const getBlogByTag = async (slug: string) => {
+export const getBlogByCategory = async (slug: string) => {
 	const query = gql`
 		query Assets($slug: String!) {
-			tag(where: { slug: $slug }) {
+			category(where: { slug: $slug }) {
 				blog {
 					description
 					author {
@@ -52,6 +52,6 @@ export const getBlogByTag = async (slug: string) => {
 		}
 	`;
 
-	const { tag } = await request<{ tag: { blog: IBlog[]; name: string } }>(graphqlAPI, query, { slug });
-	return tag;
+	const { category } = await request<{ category: { blog: IBlog[]; name: string } }>(graphqlAPI, query, { slug });
+	return category;
 };

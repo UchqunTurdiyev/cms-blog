@@ -2,14 +2,16 @@ import React from 'react';
 import { getBlogByTag } from '../../../../../service/tag.service';
 import { Dot, Home } from 'lucide-react';
 import Link from 'next/link';
+import BlogCard from '@/components/blog/blog';
 
 async function Page({ params }: { params: { slug: string } }) {
-	const blog = await getBlogByTag(params.slug);
+	const tag = await getBlogByTag(params.slug);
+
 	return (
 		<div className='max-w-6xl mx-auto'>
-			<div className='relative min-h-[40vh] flex items-center justify-end flex-col'>
+			<div className='relative min-h-[30vh] flex items-center justify-end flex-col'>
 				<h2 className='text-center text-4xl section-title font-creteRound mt-2'>
-					<span>Contact</span>
+					<span>{tag.name}</span>
 				</h2>
 
 				<div className='flex gap-1 items-center mt-4'>
@@ -18,8 +20,13 @@ async function Page({ params }: { params: { slug: string } }) {
 						Home
 					</Link>
 					<Dot />
-					<p className='text-muted-foreground'>Contact</p>
+					<p className='text-muted-foreground'>Tags</p>
 				</div>
+			</div>
+			<div className='mt-16'>
+				{tag.blog.map(blog => (
+					<BlogCard key={blog.title} {...blog} isVertical />
+				))}
 			</div>
 		</div>
 	);

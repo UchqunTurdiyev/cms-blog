@@ -1,7 +1,7 @@
 import { cn, getReadingTime } from '@/lib/utils';
 
 import { format } from 'date-fns';
-import { CalendarDays, Clock, Dot, Minus } from 'lucide-react';
+import { CalendarDays, Clock, Dot, Layers3, List, Minus, Tag } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
@@ -38,7 +38,7 @@ function BlogCard(blog: Props) {
 						<Minus />
 						<div className='flex items-center gap-2'>
 							<Clock className='w-5 h-5' />
-							{/* <p>{getReadingTime(blog.)} min read</p> */}
+							<p>{getReadingTime(blog.createdAt)} min read</p>
 						</div>
 					</div>
 
@@ -56,8 +56,16 @@ function BlogCard(blog: Props) {
 					<Dot />
 					<div className='flex items-center gap-2'>
 						<Link href={`/tags/${blog.tag.slug}`}>
-							<Badge variant={'secondary'} role='button'>
+							<Badge variant={'secondary'} role='button' className='py-2 rounded-md'>
+								<Tag className='w-3 h-3 me-2' />
 								{blog.tag.name}
+							</Badge>
+						</Link>
+						{/* <Dot /> */}
+						<Link href={`/category/${blog.category.slug}`}>
+							<Badge variant={'secondary'} role='button' className='py-2 rounded-md'>
+								<Layers3 className='w-3 h-3 me-2' />
+								{blog.category.name}
 							</Badge>
 						</Link>
 					</div>
