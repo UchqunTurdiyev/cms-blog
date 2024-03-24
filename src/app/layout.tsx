@@ -3,6 +3,7 @@ import { Inter, Work_Sans, Crete_Round } from 'next/font/google';
 import './globals.css';
 import { ChildProps } from '../../types';
 import { ThemeProvider } from '@/components/provider/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
 
 const inter = Inter({ subsets: ['latin'] });
 const createRound = Crete_Round({ weight: ['400'], subsets: ['latin'], variable: '--font-createRound' });
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: ChildProps) {
 			<body className={`${createRound.variable} ${workSans.variable} overflow-x-hidden`}>
 				<ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
 					{children}
+					<Toaster position='top-center' />
 				</ThemeProvider>
 			</body>
 		</html>
