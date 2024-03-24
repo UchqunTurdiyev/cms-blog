@@ -1,6 +1,5 @@
-import React from 'react';
-
-import { Button } from '@/components/ui/button';
+'use client';
+import React, { ChangeEvent, useState } from 'react';
 import {
 	Drawer,
 	DrawerClose,
@@ -11,13 +10,37 @@ import {
 	DrawerTitle,
 	DrawerTrigger,
 } from '@/components/ui/drawer';
-import { Minus, Search } from 'lucide-react';
+import { Loader2, Minus, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { popularCategories, popularTags } from '../../../../constants';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
+import { IBlog } from '../../../../types';
+import { getSearchBlogs } from '../../../../service/blog.service';
+import { debounce } from 'lodash';
+import SearchCard from '@/components/card/search';
 
 function GlobalSearch() {
+	const [load, setLoad] = useState(false);
+	const [blogs, setBlogs] = useState<IBlog[]>([]);
+
+	const handleSearch = async (e: ChangeEvent<HTMLInputElement>) => {
+		const text = e.target.value.toLowerCase();
+
+		if (text && text.length > 2) {
+			setLoad(true);
+			const data = await getSearchBlogs(text);
+
+			setBlogs(data);
+			setLoad(false);
+		} else {
+			setBlogs([]);
+			setLoad(false);
+		}
+	};
+
+	const debaunceSearch = debounce(handleSearch, 500);
+
 	return (
 		<Drawer>
 			<DrawerTrigger>
@@ -29,7 +52,12 @@ function GlobalSearch() {
 			</DrawerTrigger>
 			<DrawerContent>
 				<div className='container max-w-6xl mx-auto py-12'>
-					<Input className='bg-secondary' placeholder='Type to Search blog...' />
+					<Input className='bg-secondary' placeholder='Type to Search blog...' onChange={debaunceSearch} />
+					{load && <Loader2 className='animate-spin mt-4 mx-auto' />}
+					{blogs.length ? <div className='text-2xl font-creteRound mt-8'>{blogs.length} Results found</div> : null}
+					<div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-2'>
+						{blogs && blogs.map(blog => <SearchCard key={blog.slug} {...blog} />)}
+					</div>
 					<div className='flex flex-col space-y-2 mt-4'>
 						<div className='flex items-center gap-2'>
 							<p className='font-createRound text-2xl'>See posts by category</p>

@@ -3,16 +3,16 @@ import parse from 'html-react-parser';
 import { ArrowUpRight, CalendarDays, Clock, Facebook, Link2, Linkedin, Minus, Send, Twitter } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { authors, content } from '../../../../../constants';
 import { getDetailedBlog } from '../../../../../service/blog.service';
 import { getReadingTime } from '@/lib/utils';
 import { format } from 'date-fns';
 
 async function SlugPage({ params }: { params: { slug: string } }) {
 	const blog = await getDetailedBlog(params.slug);
+
 	return (
 		<div className='pt-[15vh] max-w-5xl mx-auto'>
-			<h1 className='lg:text-6xl md:text-5xl text-4xl font-creteRound'>{blog.title}</h1>
+			<h1 className='lg:text-6xl md:text-5xl text-4xl font-creteRound'>{blog.slug}</h1>
 
 			<div className='flex items-center flex-wrap max-md:justify-center gap-4 mt-4'>
 				<div className='flex items-center gap-2'>

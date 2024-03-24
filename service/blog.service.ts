@@ -76,3 +76,19 @@ export const getDetailedBlog = async (slug: string) => {
 	const { blogs } = await request<{ blogs: IBlog }>(graphqlAPI, query, { slug });
 	return blogs;
 };
+
+export const getSearchBlogs = async (title: string) => {
+	const query = gql`
+		query Assets($title: String!) {
+			blog(where: { title_contains: $title }) {
+				title
+				image {
+					url
+				}
+				id
+			}
+		}
+	`;
+	const { blog } = await request<{ blog: IBlog[] }>(graphqlAPI, query, { title });
+	return blog;
+};
