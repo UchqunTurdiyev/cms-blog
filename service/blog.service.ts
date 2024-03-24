@@ -1,5 +1,6 @@
 import request, { gql } from 'graphql-request';
 import { IArchive, IBlog } from '../types';
+import { cache } from 'react';
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
 
 export const getBlogs = async () => {
@@ -41,7 +42,7 @@ export const getBlogs = async () => {
 	return blog;
 };
 
-export const getDetailedBlog = async (slug: string) => {
+export const getDetailedBlog = cache(async (slug: string) => {
 	const query = gql`
 		query Assets($slug: String!) {
 			blogs(where: { slug: $slug }) {
@@ -75,7 +76,7 @@ export const getDetailedBlog = async (slug: string) => {
 
 	const { blogs } = await request<{ blogs: IBlog }>(graphqlAPI, query, { slug });
 	return blogs;
-};
+});
 
 export const getSearchBlogs = async (title: string) => {
 	const query = gql`
@@ -114,5 +115,5 @@ export const getArchiveBlog = async () => {
 		return acc;
 	}, {});
 	const results: IArchive[] = Object.values(filteredBlog);
-	return results
+	return results;
 };

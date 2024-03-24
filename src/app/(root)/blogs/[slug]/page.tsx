@@ -6,6 +6,19 @@ import Link from 'next/link';
 import { getDetailedBlog } from '../../../../../service/blog.service';
 import { getReadingTime } from '@/lib/utils';
 import { format } from 'date-fns';
+import { Metadata } from 'next';
+
+export async function generateMeatadata({ params }: { params: { slug: string } }) {
+	const blog = await getDetailedBlog(params.slug);
+
+	return {
+		title: blog.title,
+		description: blog.description,
+		openGraph: {
+			images: blog.image.url
+		},
+	};
+}
 
 async function SlugPage({ params }: { params: { slug: string } }) {
 	const blog = await getDetailedBlog(params.slug);

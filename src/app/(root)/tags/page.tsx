@@ -3,10 +3,14 @@ import Link from 'next/link';
 import React from 'react';
 import { getTags } from '../../../../service/tag.service';
 import CategoiresTagCard from '@/components/card/categoires-tag';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'All Tags',
+};
 
 async function Page() {
 	const tags = await getTags();
-	console.log(tags);
 
 	return (
 		<div className='max-w-6xl mx-auto'>

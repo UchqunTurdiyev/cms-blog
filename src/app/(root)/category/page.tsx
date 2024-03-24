@@ -3,11 +3,14 @@ import Link from 'next/link';
 import React from 'react';
 import CategoiresTagCard from '@/components/card/categoires-tag';
 import { getCategories } from '../../../../service/category.service';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'All Categories',
+};
 
 async function Page() {
 	const category = await getCategories();
-
-	console.log('Hello ' + category);
 
 	return (
 		<div className='max-w-6xl mx-auto'>
