@@ -51,6 +51,7 @@ export const getDetailedBlog = async (slug: string) => {
 						url
 					}
 					bio
+					id
 				}
 				createdAt
 				title

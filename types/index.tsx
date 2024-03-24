@@ -21,6 +21,8 @@ export interface IAuthors {
 	};
 	name: string;
 	bio: string;
+	blog: IBlog[];
+	id: string;
 }
 
 export interface ICategoryAndTag {

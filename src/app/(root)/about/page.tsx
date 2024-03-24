@@ -2,9 +2,10 @@ import AuthorCard from '@/components/card/author';
 import { Dot, Home } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { authors } from '../../../../constants';
+import { getAuthors } from '../../../../service/author.service';
 
-function AboutPage() {
+async function AboutPage() {
+	const authors = await getAuthors();
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-center flex-col'>
