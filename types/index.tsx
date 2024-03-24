@@ -25,6 +25,11 @@ export interface IAuthors {
 	id: string;
 }
 
+export interface IArchive {
+	year: string;
+	blog: IBlog[];
+}
+
 export interface ICategoryAndTag {
 	name: string;
 	slug: string;

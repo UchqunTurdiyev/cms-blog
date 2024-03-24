@@ -1,15 +1,6 @@
 'use client';
 import React, { ChangeEvent, useState } from 'react';
-import {
-	Drawer,
-	DrawerClose,
-	DrawerContent,
-	DrawerDescription,
-	DrawerFooter,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-} from '@/components/ui/drawer';
+import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import { Loader2, Minus, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { popularCategories, popularTags } from '../../../../constants';
@@ -19,6 +10,7 @@ import { IBlog } from '../../../../types';
 import { getSearchBlogs } from '../../../../service/blog.service';
 import { debounce } from 'lodash';
 import SearchCard from '@/components/card/search';
+import { Separator } from '@/components/ui/separator';
 
 function GlobalSearch() {
 	const [load, setLoad] = useState(false);
@@ -58,6 +50,7 @@ function GlobalSearch() {
 					<div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-2'>
 						{blogs && blogs.map(blog => <SearchCard key={blog.title} {...blog} />)}
 					</div>
+					{blogs.length ? <Separator className='my-3' /> : null}
 					<div className='flex flex-col space-y-2 mt-4'>
 						<div className='flex items-center gap-2'>
 							<p className='font-createRound text-2xl'>See posts by category</p>
