@@ -19,10 +19,7 @@ function SearchCard(blog: IBlog) {
 					alt={blog.title}
 					className='rounded-md shadow-xl dark:shadow-white/5'
 				/>
-				<div className='flex items-center gap-2'>
-					<CalendarDays className='w-4 h-4' />
-					{/* <p className='text-sm'>{format(new Date(blog.createdAt), 'MMM dd, YYYY')}</p> */}
-				</div>{' '}
+				<h1>{blog.title}</h1>
 			</DrawerClose>
 		</Link>
 	);

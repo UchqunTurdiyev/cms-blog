@@ -56,7 +56,7 @@ function GlobalSearch() {
 					{load && <Loader2 className='animate-spin mt-4 mx-auto' />}
 					{blogs.length ? <div className='text-2xl font-creteRound mt-8'>{blogs.length} Results found</div> : null}
 					<div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-2'>
-						{blogs && blogs.map(blog => <SearchCard key={blog.slug} {...blog} />)}
+						{blogs && blogs.map(blog => <SearchCard key={blog.title} {...blog} />)}
 					</div>
 					<div className='flex flex-col space-y-2 mt-4'>
 						<div className='flex items-center gap-2'>
