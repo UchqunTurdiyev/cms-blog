@@ -4,9 +4,17 @@ import Link from 'next/link';
 import BlogCard from '@/components/blog/blog';
 import { getBlogByCategory } from '../../../../../service/category.service';
 
-async function Page({ params }: { params: { slug: string } }) {
+export async function getStaticProps({ params }: { params: { slug: string } }) {
 	const category = await getBlogByCategory(params.slug);
 
+	return {
+		props: {
+			category,
+		},
+	};
+}
+
+async function Page({ category }: { category: any }) {
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[30vh] flex items-center justify-end flex-col'>
