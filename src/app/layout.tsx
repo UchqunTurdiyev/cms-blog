@@ -4,6 +4,7 @@ import './globals.css';
 import { ChildProps } from '../../types';
 import { ThemeProvider } from '@/components/provider/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
+import NextTopLoader from 'nextjs-toploader';
 
 const inter = Inter({ subsets: ['latin'] });
 const createRound = Crete_Round({ weight: ['400'], subsets: ['latin'], variable: '--font-createRound' });
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: ChildProps) {
 		<html lang='en' suppressHydrationWarning>
 			<body className={`${createRound.variable} ${workSans.variable} overflow-x-hidden`}>
 				<ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+					<NextTopLoader />
 					{children}
 					<Toaster position='top-center' />
 				</ThemeProvider>
