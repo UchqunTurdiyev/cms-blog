@@ -4,16 +4,13 @@ import { Dot, Home } from 'lucide-react';
 import Link from 'next/link';
 import BlogCard from '@/components/blog/blog';
 
-export async function generateMeatadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
 	const tag = await getBlogByTag(params.slug);
+
 	return {
 		title: tag.name,
-		openGraph: {
-			images: tag.blog.map(c => c.image.url),
-		},
 	};
 }
-
 async function Page({ params }: { params: { slug: string } }) {
 	const tag = await getBlogByTag(params.slug);
 
