@@ -1,4 +1,3 @@
-
 import parse from 'html-react-parser';
 import { ArrowUpRight, CalendarDays, Clock, Facebook, Link2, Linkedin, Minus, Send, Twitter } from 'lucide-react';
 import Image from 'next/image';
@@ -6,7 +5,6 @@ import Link from 'next/link';
 import { getDetailedBlog } from '../../../../../service/blog.service';
 import { getReadingTime } from '@/lib/utils';
 import { format } from 'date-fns';
-import { Metadata } from 'next';
 import ShareBtn from '../../_components/share-btn';
 
 export async function generateMeatadata({ params }: { params: { slug: string } }) {
@@ -51,7 +49,7 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 				<div className='flex flex-col space-y-3'>
 					<div className='sticky top-36'>
 						<p className='text-lg uppercase text-muted-foreground'>Share</p>
-			       <ShareBtn />
+						<ShareBtn />
 					</div>
 				</div>
 				<div className='flex-1 prose dark:prose-invert'>{parse(blog.content.html)}</div>
