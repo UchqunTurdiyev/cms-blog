@@ -6,7 +6,6 @@ import { getBlogByCategory } from '../../../../../service/category.service';
 
 async function Page({ params }: { params: { slug: string } }) {
 	const category = await getBlogByCategory(params.slug);
-	console.log(category);
 
 	return (
 		<div className='max-w-6xl mx-auto'>
