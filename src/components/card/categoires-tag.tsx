@@ -11,10 +11,11 @@ const CategoiresTagCard = (item: Props) => {
 	return (
 		<Link
 			href={`/${item.type}/${item.slug}`}
-			className='bg-secondary p-4 md:p-8 rounded-md shadow-xl flex items-center gap-4 justify-center hover:bg-secondary/80 transition-colors dark:shadow-white/5'
+			className='bg-secondary p-4 md:p-8 rounded-md shadow-xl flex flex-col items-center gap-4 justify-center hover:bg-secondary/80 transition-colors dark:shadow-white/5'
 		>
-			{item.type === 'categories' ? <Tags /> : <Layers3 />}
+			{item.type === 'categories' ? <Tags size={'40px'} /> : <Layers3 size={'40px'} />}
 			<h1 className='text-2xl font-creteRound'>{item.name}</h1>
+			<p>{item.blog.length} blog</p>
 		</Link>
 	);
 };

@@ -33,4 +33,5 @@ export interface IArchive {
 export interface ICategoryAndTag {
 	name: string;
 	slug: string;
+	blog: IBlog[];
 }

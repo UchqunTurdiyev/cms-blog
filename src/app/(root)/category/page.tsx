@@ -28,7 +28,7 @@ async function Page() {
 					<p className='text-muted-foreground'>Categories</p>
 				</div>
 			</div>
-			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-24'>
+			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-24 gap-4'>
 				{category.map(item => (
 					// eslint-disable-next-line
 					<CategoiresTagCard item={item.slug} {...item} type='categories' />
