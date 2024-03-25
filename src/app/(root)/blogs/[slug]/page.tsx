@@ -7,7 +7,7 @@ import { getReadingTime } from '@/lib/utils';
 import { format } from 'date-fns';
 import ShareBtn from '../../_components/share-btn';
 
-export async function generateMeatadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
 	const blog = await getDetailedBlog(params.slug);
 
 	return {
