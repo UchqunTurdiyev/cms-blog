@@ -15,7 +15,7 @@ export async function generateMeatadata({ params }: { params: { slug: string } }
 		title: blog.title,
 		description: blog.description,
 		openGraph: {
-			images: blog.image.url
+			images: blog.image.url,
 		},
 	};
 }

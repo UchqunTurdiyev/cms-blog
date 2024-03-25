@@ -1,5 +1,6 @@
 import request, { gql } from 'graphql-request';
 import { IBlog, ICategoryAndTag } from '../types';
+import { cache } from 'react';
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
 
@@ -17,7 +18,7 @@ export const getCategories = async () => {
 	return categories;
 };
 
-export const getBlogByCategory = async (slug: string) => {
+export const getBlogByCategory = cache(async (slug: string) => {
 	const query = gql`
 		query Assets($slug: String!) {
 			category(where: { slug: $slug }) {
@@ -54,4 +55,4 @@ export const getBlogByCategory = async (slug: string) => {
 
 	const { category } = await request<{ category: { blog: IBlog[]; name: string } }>(graphqlAPI, query, { slug });
 	return category;
-};
+});

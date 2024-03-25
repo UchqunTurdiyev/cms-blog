@@ -2,10 +2,21 @@ import React from 'react';
 import { Dot, Home } from 'lucide-react';
 import Link from 'next/link';
 import BlogCard from '@/components/blog/blog';
-import { getBlogByCategory } from '../../../../../service/category.service';
+import { getBlogByCategory, getCategories } from '../../../../../service/category.service';
+
+export async function generateMeatadata({ params }: { params: { slug: string } }) {
+	const blog = await getBlogByCategory(params.slug);
+	return {
+		title: blog.name,
+		openGraph: {
+			images: blog.blog.map(c => c.image.url),
+		},
+	};
+}
 
 async function Page({ params }: { params: { slug: string } }) {
 	const category = await getBlogByCategory(params.slug);
+	console.log(category);
 
 	return (
 		<div className='max-w-6xl mx-auto'>
