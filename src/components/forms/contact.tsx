@@ -16,7 +16,7 @@ function ContactForm() {
 	const form = useForm<z.infer<typeof contactSchema>>({
 		resolver: zodResolver(contactSchema),
 		defaultValues: {
-			email: '',
+			number: '',
 			message: '',
 			name: '',
 		},
@@ -36,7 +36,7 @@ function ContactForm() {
 			body: JSON.stringify({
 				chat_id: telegramChatId,
 				text: `Name: ${values.name}
-        Email: ${values.email}
+        Number: ${values.number}
         Message: ${values.message}
         `,
 			}),
@@ -73,11 +73,11 @@ function ContactForm() {
 					/>
 					<FormField
 						control={form.control}
-						name='email'
+						name='number'
 						render={({ field }) => (
 							<FormItem>
 								<FormControl>
-									<Input placeholder='Email address' {...field} disabled={isLoading} />
+									<Input placeholder='Tel number' {...field} disabled={isLoading} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>

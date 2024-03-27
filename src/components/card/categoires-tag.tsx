@@ -15,7 +15,7 @@ const CategoiresTagCard = (item: Props) => {
 		>
 			{item.type === 'categories' ? <Tags size={'40px'} /> : <Layers3 size={'40px'} />}
 			<h1 className='text-2xl font-creteRound'>{item.name}</h1>
-			{/* <p>{item.blog.length} blog</p> */}
+			<p>{item.blog.length} blog</p>
 		</Link>
 	);
 };

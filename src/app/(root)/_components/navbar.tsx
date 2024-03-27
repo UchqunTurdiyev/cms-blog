@@ -8,6 +8,7 @@ import GlobalSearch from './global-search';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import Mobile from './mobile';
+import Image from 'next/image';
 
 function Navbar() {
 	const pathname = usePathname();
@@ -15,8 +16,11 @@ function Navbar() {
 		<div className='h-20 backdrop-blur-sm border-b fixed z-40 inset-0 bg-background'>
 			<div className='container max-w-6xl mx-auto h-20 w-full flex items-center justify-between'>
 				{/* Logo */}
-				<Link href={'/'} className='text-4xl font-createRound'>
-					Uchqun
+				<Link href={'/'} className='font-createRound'>
+					<h1 className='sm:text-4xl text-3xl font-createRound'>
+						{/* Resina <span className='text-red-400'>Art</span> */}
+						<Image src={'/logo.png'} alt='' width={120} height={100} />
+					</h1>
 				</Link>
 				{/* Nav links */}
 				<div className='gap-2 hidden md:flex'>

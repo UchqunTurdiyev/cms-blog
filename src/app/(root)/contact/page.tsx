@@ -2,7 +2,7 @@ import ContactForm from '@/components/forms/contact';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Dot, Home, Mail, Phone, Send } from 'lucide-react';
+import { Dot, Home, Instagram, Mail, Phone, Send } from 'lucide-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -30,18 +30,32 @@ function ContactPage() {
 
 			<div className='grid grid-cols-2 max-md:grid-cols-1 gap-4 mt-6'>
 				<div className='flex flex-col'>
-					<h1 className='text-4xl font-creteRound'>Contact Sammi</h1>
-					<p className='mt-2 text-muted-foreground'>
-						I am here to help and answer any question you might have. I look forward to hearing from you
-					</p>
+					<h1 className='text-4xl font-creteRound'>Aloqa uchun Xadicha</h1>
+					<p className='mt-2 text-muted-foreground'>Bizga aloqaga chqing sizga imkon boricha yordam beramiz</p>
 
-					<div className='mt-12 flex items-center gap-3'>
-						<Mail className='w-4 h-4' />
-						<p className='text-sm'>info@sammi.ac</p>
+					<div className='flex items-center gap-3 mt-10'>
+						<Send className='w-6 h-6' />
+						<p className='text-lg'>
+							<a href='https://t.me/+f6u_IKyfiXs5NjFi'>Hadicha_decor</a>
+						</p>
 					</div>
-					<div className='flex items-center gap-3 mt-2'>
-						<Phone className='w-4 h-4' />
-						<p className='text-sm'>+98 02 296 4902</p>
+					<div className='flex items-center gap-3 mt-4'>
+						<Instagram className='w-6 h-6' />
+						<p className='text-lg'>
+							<a href='https://www.instagram.com/smala_onlayn_kurs_onlayn_savdo/'>Resina art. Xadicha</a>
+						</p>
+					</div>
+					<div className='mt-4 flex items-center gap-3'>
+						<Mail className='w-6 h-6' />
+						<p className='text-lg'>
+							<a href='mailto:uchqundev@gmail.com'>uchqundev@gmail.com</a>
+						</p>
+					</div>
+					<div className='flex items-center gap-3 mt-4'>
+						<Phone className='w-6 h-6' />
+						<p className='text-lg'>
+							<a href='tel: +998996277727'>99 627-77-27</a>
+						</p>
 					</div>
 				</div>
 

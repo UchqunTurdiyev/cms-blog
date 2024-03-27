@@ -18,7 +18,9 @@ function Mobile() {
 			</SheetTrigger>
 			<SheetContent side={'left'}>
 				<Link href={'/'}>
-					<h1 className='text-4xl font-createRound'>Uchqun</h1>
+					<h1 className='text-4xl font-createRound'>
+						Resina <span className='text-red-400'>Art</span>
+					</h1>
 				</Link>
 				<Separator className='my-3' />
 				<div className='flex flex-col space-y-3'>

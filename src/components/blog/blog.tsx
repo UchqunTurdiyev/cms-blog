@@ -16,13 +16,13 @@ function BlogCard(blog: Props) {
 	return (
 		<div className={cn('grid gap-4 group', blog.isVertical ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2')}>
 			<Link href={`/blogs/${blog.slug}`}>
-				<div className='relative bg-secondary rounded-md'>
+				<div className='relative bg-secondary rounded-md '>
 					<Image
 						width={650}
-						height={335}
+						height={235}
 						src={blog.image.url}
 						alt={blog.title}
-						className='px-2 md:px-7 rounded-md group-hover:-translate-y-7 -translate-y-6 transition-all object-cover grayscale group-hover:grayscale-0 max-md:-translate-y-2 max-md:group-hover:-translate-y-3'
+						className='px-2 h-[400px] md:px-7 rounded-md group-hover:-translate-y-7 -translate-y-6 transition-all object-cover grayscale group-hover:grayscale-0 max-md:-translate-y-2 max-md:group-hover:-translate-y-3'
 					/>
 				</div>
 			</Link>
