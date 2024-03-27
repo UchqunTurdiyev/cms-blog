@@ -48,13 +48,13 @@ function BlogCard(blog: Props) {
 				</Link>
 
 				{/* Author */}
-				<div className='flex items-center gap-4'>
+				<div className='flex flex-col  gap-4'>
 					<div className='flex items-center gap-2'>
 						<Image src={blog.author.image.url} alt='author' width={30} height={30} className='object-cover rounded-sm' />
 						<p>by {blog.author.name}</p>
 					</div>
-					<Dot />
-					<div className='flex items-center gap-2'>
+					{/* <Dot /> */}
+					<div className='flex items-center gap-2 mt-3'>
 						<Link href={`/tags/${blog.tag.slug}`}>
 							<Badge variant={'secondary'} role='button' className='py-2 rounded-md'>
 								<Tag className='w-3 h-3 me-2' />

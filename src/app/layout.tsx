@@ -18,13 +18,13 @@ export const metadata: Metadata = {
 	authors: [{ name: 'Uchqun Turdiyev', url: 'https//uchqun007.com' }],
 	icons: { icon: '/fw.png' },
 	keywords:
-		'decor, resina art, resina, xadicha, sovg\'alar, zamonaviy sovg\'a, kreativ sovg\'a, noodatiy sovg\'a, smala, uy bezaklari, islomiy sovg\'a, kartina uy uchun, soat, devoriy rasm, devoriy kartina, resina art darslari, xadicha decor, smala darslari, soat yasash, stol yasash, lavx, lavx yasash,',
+		"decor, resina art, resina, xadicha, sovg'alar, zamonaviy sovg'a, kreativ sovg'a, noodatiy sovg'a, smala, uy bezaklari, islomiy sovg'a, kartina uy uchun, soat, devoriy rasm, devoriy kartina, resina art darslari, xadicha decor, smala darslari, soat yasash, stol yasash, lavx, lavx yasash,",
 	openGraph: {
 		title: 'Xadicha | Resina art',
 		description: "Resina art, stol stul, lavx, soat, va yana shunga oxshagan narsalrni sotib olish yoki o'ganish uchun",
 		type: 'website',
 		locale: 'en_EN || uz_UZ',
-		images: '/lb.png',
+		images: '/faw.png',
 		countryName: 'Uzbekistan',
 		siteName: 'https://www.resina-art.uz',
 		emails: 'uchqundev@gmail.com',

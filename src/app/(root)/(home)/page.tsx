@@ -6,7 +6,7 @@ async function HomePage() {
 	const blogs = await getBlogs();
 
 	return (
-		<div className='w-full overflow-x-hidden'>
+		<div className='w-full max-sm:overflow-x-hidden'>
 			<div className='relative min-h-[60vh] flex items-center justify-center'>
 				<h1 className='text-2xl md:text-4xl lg:text-5xl font-creteRound text-center max-w-3xl mx-auto'>
 					Resina art mahsulotlariga ega {"bo'ling"}, mahsulot yasashni {"o'rganing "}
