@@ -6,6 +6,7 @@ import { navLink } from '../../../../constants';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 import { Separator } from '@/components/ui/separator';
+import { DrawerClose } from '@/components/ui/drawer';
 
 function Mobile() {
 	const pathname = usePathname();
@@ -26,15 +27,16 @@ function Mobile() {
 				<div className='flex flex-col space-y-3'>
 					{navLink.map(nav => (
 						<Link
-							href={nav.route}
 							key={nav.name}
+							href={nav.route}
 							className={cn(
-								'hover:bg-blue-400/20 py-1 px-3 cursor-pointer rounded-sm transition-colors flex items-center gap-2',
+								'hover:bg-blue-400/20 py-1 px-3 cursor-pointer rounded-sm transition-colors ',
 								pathname === nav.route && 'text-blue-400 bg-blue-400/20'
 							)}
 						>
-							<nav.icon className='w-5 h-5' />
-							{nav.name}
+							<DrawerClose className='flex items-center gap-2'>
+								<nav.icon className='w-5 h-5' /> {nav.name}
+							</DrawerClose>
 						</Link>
 					))}
 				</div>{' '}

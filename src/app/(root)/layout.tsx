@@ -5,7 +5,7 @@ import Footer from './_components/footer';
 
 function Layout({ children }: ChildProps) {
 	return (
-		<main>
+		<main className='w-full'>
 			<Navbar />
 			<div className='container'>{children}</div>
 			<Footer />

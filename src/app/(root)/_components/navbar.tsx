@@ -13,7 +13,7 @@ import Image from 'next/image';
 function Navbar() {
 	const pathname = usePathname();
 	return (
-		<div className='h-20 backdrop-blur-sm border-b fixed z-40 inset-0 bg-background'>
+		<div className='h-20 backdrop-blur-sm border-b fixed z-40 inset-0 bg-background w-full'>
 			<div className='container max-w-6xl mx-auto h-20 w-full flex items-center justify-between'>
 				{/* Logo */}
 				<Link href={'/'} className='font-createRound'>
