@@ -18,7 +18,7 @@ async function HomePage() {
 			</h2>
 
 			<div className='flex flex-col space-y-24 mt-24'>
-				{blogs.map(blog => (
+				{blogs.reverse().map(blog => (
 					<BlogCard key={blog.title} {...blog} />
 				))}
 			</div>

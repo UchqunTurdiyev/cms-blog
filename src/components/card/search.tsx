@@ -7,7 +7,6 @@ import { CalendarDays } from 'lucide-react';
 import { format } from 'date-fns';
 
 function SearchCard(blog: IBlog) {
-	console.log(blog);
 
 	return (
 		<Link href={`/blogs/${blog.title}`}>

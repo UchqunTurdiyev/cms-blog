@@ -35,3 +35,13 @@ export interface ICategoryAndTag {
 	slug: string;
 	blog: IBlog[];
 }
+
+export interface IGalleries {
+	id?: string;
+	title: string;
+	image: {
+		url: string;
+	};
+	slug?: string;
+	number?: number;
+}
